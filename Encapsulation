@@ -1,0 +1,36 @@
+#include<iostream>
+using namespace std;
+
+class Car {
+    private:
+        string brand;
+    public:
+        void setInfo(string b){           //setter
+            brand = b;
+        }
+        
+        string getInfo(){                 //getter
+            return brand;
+        }
+        
+        void drive(){                     // method
+            cout << "driving " << brand << endl;
+        }
+};
+
+int main(){
+    Car c1;
+    // c1.brand = "bmw";                     //Error its accessing private ->not allowed
+    c1.setInfo("bmw");                       //safe access using public methods
+    cout << c1.getInfo() << endl;  
+    
+    c1.drive();
+
+}
+
+----------------------
+bmw
+driving bmw
+
+
+=== Code Execution Successful ===
