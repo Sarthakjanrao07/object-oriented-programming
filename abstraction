@@ -1,0 +1,58 @@
+Abstraction is the process of hiding the implementation details and showing only the essential features to the user.
+
+In Java, it is achieved using abstract classes and interfaces.
+In C++, it is achieved using abstract classes with pure virtual functions.
+The main focus of abstraction is on what an object does rather than how it does it.
+
+----------------------------
+
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+
+class Car {
+public:
+  virtual void drive() = 0;
+  
+  void fuelType(){
+      cout << "Fuel is diesel..." << endl;
+  }
+};
+
+class Sportcar : public Car {
+    public:
+        void drive()  {
+            cout << "Car driving at 120kmph...";
+        }
+};
+
+class BMW : public Car {
+    public:
+        void drive() override {
+            cout << "BMW driving at 150kmph...";
+        }
+};
+
+class Porsche : public Car {
+    public:
+        void drive() {
+            cout << "Porsche drive at 200kmph...";
+        }
+};
+
+int main() {
+    Car* c1 = new Sportcar();
+    c1->drive();
+    c1->fuelType();
+    
+    Car* c2 = new BMW();
+    c2->drive();
+    c2->fuelType();
+    
+    Car* c3 = new Porsche();
+    c3->drive();
+    c3->fuelType();
+    
+    
+    return 0;
+}
