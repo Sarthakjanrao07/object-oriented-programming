@@ -18,7 +18,7 @@ class Car{
         }
         
         void info(){     //method 
-            cout << "brand is: " << brand << " & speed is " << speed << endl;
+            cout << "brand is: " << getInfo() << " & speed is " << speed << endl;
         }
 };
 
@@ -26,7 +26,7 @@ class sportcar : public Car{          //sportcar inherits class car
     public: 
     void carspeed(){
         speed = speed + 150;            //protected vlaue can be accessed in subclass inherited      
-        cout << "SportCar speed " <<  speed << endl;    //if try to cout: brand ,it will not bcoz its private -> within same class
+        cout << getInfo() << " speed " <<  speed << endl;    //if try to cout: brand ,it will not bcoz its private -> within same class
     }
 }; 
 
@@ -39,12 +39,19 @@ int main(){
     
     sportcar c2;
     // c2.speed = 100;
+    c2.setInfo("porsche");
     c2.carspeed();
+    c2.info();
  }
 
+-----------------------------
+
+brand is: bmw & speed is 100
+porsche speed 250
+brand is: porsche & speed is 250
 
 
-
+=== Code Execution Successful ===
 
 
 
@@ -69,6 +76,7 @@ int main(){
 
 JAVA
 
+
 class Car{
     private String brand;
     
@@ -90,8 +98,10 @@ class Car{
 class Sportcar extends Car {
     void speed() {
         speed = speed + 150;
-        System.out.println("Sport Car speed is : " + speed );
+        System.out.println(getInfo() + " speed is : " + speed );
     }
+    
+    
     
 }
 
@@ -102,6 +112,15 @@ class Main {
         c1.info();
         
         Sportcar c2 = new Sportcar();
+        c2.setInfo("porsche");
         c2.speed();
+        
+        c2.info();
     }
 }
+
+------------------------------
+
+brand is : bmw & speed is 100
+porsche speed is : 250
+brand is : porsche & speed is 250
