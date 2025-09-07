@@ -45,6 +45,8 @@ turbo activated!
 
 JAVA
 
+SINGLE INHERITANCE
+
 class Car {
     void drive(){
         System.out.println("Car is driving...");
