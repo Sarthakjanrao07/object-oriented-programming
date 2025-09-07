@@ -1,0 +1,75 @@
+Inheritance is the process by which one class (child/derived class) acquires the properties and behaviors of another class (parent/base class).
+
+Promotes code reusability.
+Helps in building a hierarchy.
+
+Types: Single, Multilevel, Hierarchical, Multiple (C++ only), Hybrid.
+Java does not support multiple inheritance with classes, but supports it using interfaces.
+
+
+#include <iostream>
+using namespace std;
+
+class Car {
+    public:
+        void drive(){
+            cout << "Car is driving" <<endl;
+        }
+};
+
+class Sportcar : public Car {
+    public:
+    void turbo() {
+        cout << "turbo activated!" << endl;
+    }
+};
+
+int main(){
+    Sportcar c1;
+    c1.drive();
+    c1.turbo();
+}
+
+-----------------
+
+Car is driving
+turbo activated!
+
+
+=== Code Execution Successful ===
+
+
+
+
+
+
+JAVA
+
+class Car {
+    void drive(){
+        System.out.println("Car is driving...");
+    }
+}
+
+class Sportcar extends Car {
+    void turbo() {
+        System.out.println("turbo activated...");
+    }
+}
+
+public class Main {
+    public static void main(String[] args){
+        Sportcar c1 = new Sportcar();
+        c1.drive();
+        c1.turbo();
+    }
+}
+
+------------------
+
+Car is driving...
+turbo activated...
+
+=== Code Execution Successful ===
+
+
