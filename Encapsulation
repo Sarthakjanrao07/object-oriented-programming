@@ -3,6 +3,9 @@ Encapsulation = Wrapping data (variables) and methods (functions) into a single 
 Protects data from unauthorized access.
 Accessed safely through getters and setters.
 
+Private members → hidden from outside.
+Public methods → control access safely (getters/setters).
+Encapsulation protects internal data and ensures safe modification.
 ------------------------
 
 #include<iostream>
