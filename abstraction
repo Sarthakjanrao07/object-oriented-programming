@@ -4,24 +4,40 @@ In Java, it is achieved using abstract classes and interfaces.
 In C++, it is achieved using abstract classes with pure virtual functions.
 The main focus of abstraction is on what an object does rather than how it does it.
 
+1->
+Abstract Base Class (Car): Defines a common blueprint with a contract for derived classes. 
+This means that you cannot create an instance of Car directly.
+This forces any concrete class that inherits from Car to provide an implementation for the drive() method.
+
+2->
+Pure Virtual Function (virtual void drive() = 0;): Enforces that all concrete derived classes must implement their own specific drive() method.
+
+3->
+Derived Classes (BMW, Porsche): Provide unique implementations for the abstract behavior defined by the base class.
+
+4->
+Polymorphism (Car* c1 = new Sportcar();): Allows generic code to interact with derived objects through the abstract Car interface at runtime.
 ----------------------------
 
 // Online C++ compiler to run C++ program online
 #include <iostream>
 using namespace std;
 
+//Abstract Class Created : 
 class Car {
 public:
-  virtual void drive() = 0;
+  virtual void drive() = 0;                   //Enforces that all concrete derived classes must implement their own specific drive() method, but it does not specify how that behavior is implemented.
   
   void fuelType(){
       cout << "Fuel is diesel..." << endl;
   }
+  
+  virtual ~Car() {}                      //destructor
 };
 
 class Sportcar : public Car {
     public:
-        void drive()  {
+        void drive() override {
             cout << "Car driving at 120kmph...";
         }
 };
@@ -35,13 +51,13 @@ class BMW : public Car {
 
 class Porsche : public Car {
     public:
-        void drive() {
+        void drive() override {
             cout << "Porsche drive at 200kmph...";
         }
 };
 
 int main() {
-    Car* c1 = new Sportcar();
+    Car* c1 = new Sportcar();                     //you declare pointers of the base class type (Car*) and point them to objects of the derived classes (Sportcar, BMW, Porsche). This is known as upcasting.
     c1->drive();
     c1->fuelType();
     
@@ -53,6 +69,80 @@ int main() {
     c3->drive();
     c3->fuelType();
     
+    delete c1;
+    delete c2;
+    delete c3;
     
     return 0;
 }
+
+--------------------
+Car driving at 120kmph...Fuel is diesel...
+BMW driving at 150kmph...Fuel is diesel...
+Porsche drive at 200kmph...Fuel is diesel...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JAVA
+
+
+abstract class Car {                                  //abstract class Car: This class cannot be instantiated directly and serves as a blueprint for specialized car types.
+
+    
+    abstract void drive();                            //abstract void drive();: This method lacks a body, creating a "contract" that any concrete class extending Car must implement its own version of drive().
+    
+    void fuelType(){                                  //void fuelType(): An abstract class can have concrete methods with a body, allowing for common, shared functionality among subclasses.
+        System.out.println("Fuel is diesel...");
+    }
+}
+
+
+ 
+class Sportcar extends Car {                            //The derived Sportcar,BMW class provides a specific implementation for the drive() method, demonstrating how specialized details are handled.
+    @Override
+    public void drive(){
+        System.out.print("SportCar drive at 150kmph...");
+    }
+}
+
+class BMW extends Car {
+    @Override
+    public void drive(){
+        System.out.print("BMW drive at 200kmph...");
+    }
+}
+
+public class Main {
+    public static void main(String[] args){
+        Car c1 = new Sportcar();                         //This demonstrates polymorphism. A Car reference variable points to a BMW object, allowing the program to interact with the object through a generic interface. 
+        c1.drive();
+        c1.fuelType();
+        
+        Car c2 = new BMW();
+        c2.drive();
+        c2.fuelType();
+    }
+}
+
+------------------------
+
+SportCar drive at 150kmph...Fuel is diesel...
+BMW drive at 200kmph...Fuel is diesel...
+
+=== Code Execution Successful ===
