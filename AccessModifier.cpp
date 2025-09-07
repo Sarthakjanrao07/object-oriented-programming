@@ -41,3 +41,67 @@ int main(){
     // c2.speed = 100;
     c2.carspeed();
  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JAVA
+
+class Car{
+    private String brand;
+    
+    public void setInfo(String b) {
+        brand = b;
+    }
+    
+    public String getInfo(){
+        return brand;
+    }
+    
+    protected int speed = 100;
+    
+    void info() {
+        System.out.println("brand is : " + brand + " & speed is " + speed);
+    }
+}
+
+class Sportcar extends Car {
+    void speed() {
+        speed = speed + 150;
+        System.out.println("Sport Car speed is : " + speed );
+    }
+    
+}
+
+class Main {
+    public static void main(String[] args){
+        Car c1 = new Car();
+        c1.setInfo("bmw");
+        c1.info();
+        
+        Sportcar c2 = new Sportcar();
+        c2.speed();
+    }
+}
