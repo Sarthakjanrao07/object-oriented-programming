@@ -1,3 +1,10 @@
+Encapsulation = Wrapping data (variables) and methods (functions) into a single class and restricting direct access to data using access specifiers.
+
+Protects data from unauthorized access.
+Accessed safely through getters and setters.
+
+------------------------
+
 #include<iostream>
 using namespace std;
 
